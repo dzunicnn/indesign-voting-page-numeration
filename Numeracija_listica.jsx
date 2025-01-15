@@ -45,7 +45,6 @@ function addFormattedPageNumber() {
 }
 
 if (app.documents.length > 0) {
-    alert("Start")
     var doc = app.activeDocument;
 
     var totalPagesToAdd = 999;
@@ -54,8 +53,6 @@ if (app.documents.length > 0) {
     }
 
     addFormattedPageNumber();
-
-    alert("Script completed. 999 pages added with formatted page numbers.");
 
     var firstSection = doc.sections[0];
 
@@ -78,7 +75,7 @@ if (app.documents.length > 0) {
 
     exportPDF(3);
 
-    for (var index = 4; index < 101; index++) {
+    for (var index = 4; index <= 5; index++) {
         firstSection.pageNumberStart = firstSection.pageNumberStart + 1000;
 
         deleteTextBoxesInDocument();
@@ -88,6 +85,8 @@ if (app.documents.length > 0) {
         exportPDF(index);
     }
 
+    alert("Numeracija glasackih listica je dovrsena.");
+
 } else {
-    alert("No active document. Please create or open a document first.");
+    alert("Molimo, otvorite željenu graficku pripremu za glasacke listice.");
 }
